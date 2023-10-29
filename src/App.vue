@@ -1,16 +1,13 @@
 <script setup>
-import { useUserStore } from '@/stores'
-
-const userToken = useUserStore()
+import zhCn from 'element-plus/dist/locale/zh-cn.mjs'
 </script>
 
 <template>
   <div>
-    <router-view></router-view>
-    <hr />
-    {{ userToken.token }}
-    <el-button @click="userToken.setToken('28da4ds5')">登录</el-button>
-    <el-button @click="userToken.removeToken()">退出</el-button>
+    <!-- App.vue 只需要留一个路由出口 router-view即可 -->
+    <el-config-provider :locale="zhCn">
+      <router-view></router-view>
+    </el-config-provider>
   </div>
 </template>
 
